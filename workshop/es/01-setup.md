@@ -18,7 +18,7 @@ En esta parte configurarás tu entorno de desarrollo **y** enseñarás a Copilot
 <!-- track:vscode:start -->
 ### Paso 2: Elige Tu Entorno de Desarrollo
 
-#### Opción A: VS Code Local
+#### Opción A: VS Code local
 
 1. Abre VS Code y ejecuta **Git: Clone** → **Clone from GitHub**
 2. Selecciona tu repositorio `my-mona-mayhem`
@@ -28,7 +28,7 @@ En esta parte configurarás tu entorno de desarrollo **y** enseñarás a Copilot
 
 1. Abre tu repositorio en GitHub
 2. Haz clic en **Code** → **Codespaces** → **Create codespace on main**
-3. Espera a que el entorno inicie y las dependencias se instalen
+3. Espera a que el entorno se inicie y se instalen las dependencias
 
 ### Paso 3: Instala las Dependencias e Inicia la Aplicación
 
@@ -87,7 +87,7 @@ Usa la ruta de instalación que corresponda a tu máquina:
    copilot
    ```
 
-4. En la sesión interactiva, ingresa:
+4. En la sesión interactiva, escribe:
 
    ```
    /login
@@ -118,20 +118,22 @@ Usemos el comando integrado `/init` para generar un archivo de instrucciones del
 
 > **Resultado:** Todas las futuras solicitudes a Copilot ahora tienen un mapa de tu workspace incorporado.
 
-### Tarea 2: Agentes en Segundo Plano
+### Tarea 2: Agentes en segundo plano
 
 **Agente en segundo plano local:**
 
-1. En el panel de Chat, haz clic en **+** → **New background agent**
-2. Ingresa el prompt:
+1. En el panel de Chat, haz clic en **+** para iniciar un chat nuevo.
+2. En la parte inferior de la ventana, cambia **Local** a **Copilot CLI**.
+3. Escribe el prompt:
 
    > "Add linting rules for unused vars and improve code style; fix any errors"
 
-3. Cuando termine, **Revisa y Aplica** los cambios, luego elimina la sesión.
+4. Cuando termine, **Revisa y aplica** los cambios y archiva la sesión si quieres.
 
 **Agente en la nube:**
 
-1. Inicia otro agente en segundo plano con:
+1. En el panel de Chat, haz clic en **+** para iniciar un chat nuevo.
+2. En la parte inferior de la ventana, cambia **Local** a **Cloud**.
 
    > "Make the README more engaging as a landing page"
 

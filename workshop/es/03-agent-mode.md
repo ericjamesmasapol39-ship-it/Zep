@@ -5,11 +5,19 @@
 
 Agent Mode permite a Copilot planificar e implementar cambios de forma autónoma en múltiples archivos. En lugar de escribir código línea por línea, describes lo que quieres y Copilot determina qué archivos crear o modificar, luego implementa todo de principio a fin.
 
-## Tarea 1: Conecta la Batalla
+## Tarea 1: Conecta la batalla
 
+<!-- track:vscode:start -->
 1. Cambia a modo **Agent** en Copilot Chat (selecciona "Agent" en el menú desplegable de modo).
 
-2. Ingresa este prompt:
+2. Escribe este prompt:
+<!-- track:vscode:end -->
+
+<!-- track:cli:start -->
+1. Devuelve Copilot CLI al flujo normal de programación (o continúa en autopilot si quieres que siga trabajando hasta que lo detengas).
+2. Si te sirve, menciona el archivo de la página para dar más contexto: `@src/pages/index.astro`.
+3. Escribe este prompt:
+<!-- track:cli:end -->
 
    > Add client-side JavaScript to the battle page that:
    > 1. When the Battle button is clicked, gets both usernames from the inputs
@@ -20,20 +28,28 @@ Agent Mode permite a Copilot planificar e implementar cambios de forma autónoma
    > 6. Displays username, total contributions, and date range for each user
    > 7. Handles loading states and errors
    > 8. Also triggers on Enter key in input fields.
+   > 9. Simple UI for now that is already scaffolded.
    >
    > Use TypeScript interfaces for the contribution data structure.
 
+<!-- track:vscode:start -->
 3. Deja que Agent Mode trabaje en la implementación a través de `index.astro`. Observa cómo planifica su enfoque, identifica los archivos que necesita modificar y escribe el código.
 
 4. Revisa los cambios propuestos en la vista de diferencias antes de aceptarlos.
+<!-- track:vscode:end -->
+
+<!-- track:cli:start -->
+4. Deja que Copilot CLI implemente los cambios en `src/pages/index.astro`.
+5. Inspecciona los cambios generados con `/diff` y apruébalos.
+<!-- track:cli:end -->
 
 ## Tarea 2: Prueba la Batalla
 
-1. Ingresa `octocat` y `torvalds` como los dos nombres de usuario, luego haz clic en **Battle**.
+1. Introduce `octocat` y `torvalds` como nombres de usuario y haz clic en **Battle**.
 2. Deberías ver ambos gráficos de contribuciones renderizados lado a lado con cuadrículas de colores.
 3. Prueba los casos de error:
    - Deja uno o ambos campos vacíos y haz clic en Battle — deberías ver un error de validación.
-   - Ingresa un nombre de usuario inválido — la app debería mostrar un error de la API.
+   - Introduce un nombre de usuario no válido; la aplicación debería mostrar un error de la API.
 4. Prueba presionar **Enter** en cualquier campo de entrada — debería activar la batalla igual que al hacer clic en el botón.
 
 ## Tarea 3: Itera con Agent
@@ -44,14 +60,20 @@ Si algo no está del todo bien, dale retroalimentación a Agent directamente en 
 - *"Add a hover tooltip showing the date and contribution count"*
 - *"The loading state needs a pulse animation"*
 
-Agent Mode maneja cambios en múltiples archivos e iteraciones de forma natural. Cada prompt de seguimiento se basa en el contexto previo, por lo que puedes refinar la implementación de forma incremental sin empezar de cero.
+<!-- track:vscode:start -->
+Agent Mode maneja de forma natural los cambios en varios archivos y las iteraciones. Cada prompt de seguimiento se basa en la conversación, así que puedes refinar la implementación de manera incremental sin empezar de cero.
+<!-- track:vscode:end -->
 
-## Consejos para Agent Mode
+<!-- track:cli:start -->
+Las sesiones de Copilot CLI conservan el historial, así que cada prompt de seguimiento se apoya en el anterior. Usa `/session` o `/context` para inspeccionar el contexto que Copilot mantiene y `/review` después de una iteración grande para buscar errores o mejoras.
+<!-- track:cli:end -->
+
+## Consejos para esta parte
 
 - **Sé específico sobre lo que quieres** — requisitos claros producen mejores resultados.
-- **Divide tareas grandes en prompts más pequeños** si Agent se desvía.
+- **Divide las tareas grandes en prompts más pequeños** si Copilot se desvía.
 - **Revisa los cambios antes de aceptar** — usa la vista de diferencias para entender qué se modificó.
-- **Si los resultados no son perfectos, da retroalimentación e itera** — Agent aprende de tus correcciones dentro de la conversación.
+- **Prueba la aplicación después de cada implementación** para detectar los problemas cuanto antes.
 
 ## ✅ Parte 3 Completa
 

@@ -7,7 +7,13 @@ Antes de escrever qualquer código, vamos usar o **Plan Mode** para pensar na ar
 
 ## Tarefa 1: Planeje a Arquitetura da API
 
-1. Mude para o modo **Plan** no Copilot Chat (clique no seletor de modo na parte inferior do painel do chat)
+<!-- track:vscode:start -->
+1. Mude para o modo **Plan** no Copilot Chat (clique no seletor de modo na parte inferior do painel do chat).
+<!-- track:vscode:end -->
+
+<!-- track:cli:start -->
+1. Entre no **plan mode** no Copilot CLI pressionando **Shift+Tab** até o modo mudar ou usando `/plan`.
+<!-- track:cli:end -->
 
 2. Insira este prompt:
 
@@ -23,14 +29,23 @@ Antes de escrever qualquer código, vamos usar o **Plan Mode** para pensar na ar
    - Sugira mudanças se algo não parecer correto
    - Itere até estar satisfeito com a abordagem
 
-4. Quando estiver satisfeito com o plano, peça ao Copilot para implementá-lo — mude para o modo **Agent** e diga para ele prosseguir
+<!-- track:vscode:start -->
+4. Quando estiver satisfeito com o plano, peça ao Copilot que o implemente: mude para o modo **Agent** e peça para prosseguir.
+<!-- track:vscode:end -->
 
-5. **Resultado:** Agora você deve ter uma rota de API criada em:
+<!-- track:cli:start -->
+4. Quando estiver satisfeito com o plano, peça ao Copilot CLI que prossiga com a implementação.
+5. Revise as edições resultantes com `/diff` antes de aprová-las.
+<!-- track:cli:end -->
+
+6. **Resultado:** Agora você deve ter uma rota de API criada em:
    ```
    src/pages/api/contributions/[username].ts
    ```
 
 ## Tarefa 2: Teste a API
+
+> **⚠️ Não está vendo as alterações?** Se o servidor de desenvolvimento não detectar a nova rota, pare-o (`Ctrl+C`) e reinicie com `npm run dev`.
 
 1. Certifique-se de que o servidor de desenvolvimento está rodando e teste o endpoint:
 
@@ -38,36 +53,51 @@ Antes de escrever qualquer código, vamos usar o **Plan Mode** para pensar na ar
    curl http://localhost:4321/api/contributions/octocat
    ```
 
-2. Você deve ver um JSON com os dados de contribuições retornados
+2. Você deve receber um JSON com os dados de contribuições.
 
-3. Teste o caso de erro também — tente um nome de usuário inválido e confirme que retorna uma resposta de erro apropriada
+3. Teste também o caso de erro: use um nome de usuário inválido e confirme que ele retorna uma resposta de erro adequada.
 
 ## Tarefa 3: Planeje a Página de Batalha
 
+<!-- track:vscode:start -->
 1. Continue no modo **Plan** e insira este prompt:
+<!-- track:vscode:end -->
+
+<!-- track:cli:start -->
+1. Continue no plan mode (ou execute `/plan`) e insira este prompt:
+<!-- track:cli:end -->
 
    ```
    Now I need the main page. Plan a battle page for "Mona Mayhem - GitHub
    Contribution Battle Arena" with: two username inputs (Player 1 and Player 2),
-   a battle button, and a results area. Use a dark theme with the Press Start 2P
-   retro gaming font from Google Fonts. Plan the HTML structure, basic styling,
+   a battle button, and a results area. Keep the UI simple — don't over-engineer
+   the layout or styling at this stage. Plan the HTML structure, basic styling,
    and how the battle interaction will work.
    ```
 
 2. **Revise e itere** no plano — faça perguntas, sugira mudanças, refine a abordagem
 
+<!-- track:vscode:start -->
 3. Quando estiver satisfeito, mude para o modo **Agent** e deixe o Copilot construir a página
+<!-- track:vscode:end -->
+
+<!-- track:cli:start -->
+3. Quando estiver satisfeito, peça ao Copilot CLI que implemente o plano aprovado.
+4. Use `/diff` novamente para inspecionar o esqueleto HTML e CSS antes de aprová-lo.
+<!-- track:cli:end -->
 
 ## Tarefa 4: Verifique o Scaffold
 
-1. Abra http://localhost:4321 no seu navegador
+> **⚠️ Não está vendo as alterações?** Se a página não estiver correta ou atualizada, pare o servidor de desenvolvimento (`Ctrl+C`), reinicie com `npm run dev` e atualize o navegador.
+
+1. Abra http://localhost:4321 no seu navegador.
 
 2. Você deve ver:
    - O título do jogo
    - Dois campos de entrada de nome de usuário (Player 1 e Player 2)
    - Um botão de batalha
 
-3. O botão ainda não vai funcionar — isso é esperado! Ainda não conectamos a lógica JavaScript. Isso vem a seguir.
+3. O botão ainda não vai funcionar — isso é esperado! Ainda não conectamos a lógica da interação. Isso vem a seguir.
 
 ---
 
